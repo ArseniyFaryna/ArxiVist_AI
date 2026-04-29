@@ -4,7 +4,7 @@ AI-powered RAG (Retrieval-Augmented Generation) platform for processing academic
 
 ## Architecture Overview
 
-```
+
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
 │   Bronze     │───>│   Silver     │───>│    Gold      │───>│ Vector Search│
 │  Raw Ingest  │    │  Cleansing   │    │  Embeddings  │    │    Index     │
@@ -22,7 +22,7 @@ AI-powered RAG (Retrieval-Augmented Generation) platform for processing academic
                                                             │ Model Serving│
                                                             │ (LLM Endpoint│
                                                             └──────────────┘
-```
+
 
 ## Stage 1: Medallion Pipeline (Data Engineering)
 
@@ -80,22 +80,22 @@ Python notebook that ties everything into a single chain:
 
 ### Storage Layout
 
-```
+
 abfss://arxivist-ai@sadlsdev.dfs.core.windows.net/
 ├── raw/
 ├── bronze/
 ├── silver/
 └── gold/
-```
+
 
 ### Schemas
 
-| Schema | Layer | Description |
-| --- | --- | --- |
-| `arxivist_ai_dev.raw` | Raw | Landed files as-is from external sources |
-| `arxivist_ai_dev.bronze` | Bronze | AutoLoader output — raw content in Delta |
-| `arxivist_ai_dev.silver` | Silver | Cleaned, chunked text with metadata |
-| `arxivist_ai_dev.gold` | Gold | Embeddings with Change Data Feed enabled |
+| Schema                  | Layer  | Description                                 |
+|-------------------------|--------|---------------------------------------------|
+| `arxivist_ai_dev.raw`   | Raw    | Landed files as-is from external sources    |
+| `arxivist_ai_dev.bronze`| Bronze | AutoLoader output — raw content in Delta    |
+| `arxivist_ai_dev.silver`| Silver | Cleaned, chunked text with metadata         |
+| `arxivist_ai_dev.gold`  | Gold   | Embeddings with Change Data Feed enabled    |
 
 ## Setup
 
